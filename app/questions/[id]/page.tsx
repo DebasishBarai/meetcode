@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const Question = ({ params }: { params: { id: string } }) => {
@@ -26,6 +27,7 @@ const Question = ({ params }: { params: { id: string } }) => {
     });
 
     const json = await response.json();
+
     setQuestion(json);
   };
 
@@ -36,37 +38,47 @@ const Question = ({ params }: { params: { id: string } }) => {
   return (
     <div className='flex min-h-screen flex-col bg-slate-800 sm:min-w-full'>
       <div className='flex min-h-full min-w-full flex-row items-center justify-center'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke-width='2.5'
-          stroke='white'
-          className='mt-2 h-6 w-6 hover:stroke-[4px]'
+        <Link
+          href={question ? `/questions/${question.serialNo - 1}` : `/questions`}
         >
-          <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            d='M15.75 19.5L8.25 12l7.5-7.5'
-          />
-        </svg>
-        <h1 className='min-w-fit p-10 text-center text-4xl text-white'>
-          Problem List
-        </h1>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke-width='2.5'
-          stroke='white'
-          className='mt-2 h-6 w-6 hover:stroke-[4px]'
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke-width='2.5'
+            stroke='white'
+            className='mt-2 h-6 w-6 hover:stroke-[4px] opacity-40 hover:opacity-100'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M15.75 19.5L8.25 12l7.5-7.5'
+            />
+          </svg>
+        </Link>
+        <Link href='/questions'>
+          <h1 className='min-w-fit p-10 text-center text-4xl text-white'>
+            Problems
+          </h1>
+        </Link>
+        <Link
+          href={question ? `/questions/${question.serialNo + 1}` : `/questions`}
         >
-          <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            d='M8.25 4.5l7.5 7.5-7.5 7.5'
-          />
-        </svg>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke-width='2.5'
+            stroke='white'
+            className='mt-2 h-6 w-6 hover:stroke-[4px] opacity-40 hover:opacity-100'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M8.25 4.5l7.5 7.5-7.5 7.5'
+            />
+          </svg>
+        </Link>
       </div>
 
       <div className='flex flex-grow bg-slate-900'>
@@ -74,6 +86,7 @@ const Question = ({ params }: { params: { id: string } }) => {
           <div className='rounded-[0.25rem_0.25rem_0_0] bg-slate-300 bg-opacity-20 p-2 text-white'>
             Description
           </div>
+
           <div className=''>
             <div className='m-2 text-white'>
               {question ? `${question.serialNo}. ${question.title}` : ''}
@@ -94,7 +107,7 @@ const Question = ({ params }: { params: { id: string } }) => {
             </div>
 
             {question &&
-              question.examples.map((example) => (
+              question?.examples?.map((example) => (
                 <>
                   <div className='m-2 text-white'>{`Example: ${example.exampleSerialNo}`}</div>
                   <div className='m-2 flex flex-col rounded-sm bg-slate-300 bg-opacity-10'>
