@@ -26,7 +26,7 @@ const LayoutComponent = () => {
         </div>
       </div>
       <div className={`${!isOpen ? 'hidden' : ''}`}>
-        <div className='absolute right-0 top-0 min-h-[80%] w-96 grid-flow-row grid-rows-[5rem_auto_5rem] rounded-[0_0_0_2rem] bg-[rgba(255,_255,_255,_0.05)] shadow-2xl'>
+        <div className='absolute right-0 top-0 min-h-[80%] w-96 grid-flow-row grid-rows-[5rem_auto_5rem] rounded-[0_0_0_2rem] bg-slate-900 shadow-2xl'>
           <div className='relative left-[20%] top-0 h-20 w-[80%] border-b border-b-[#28A0F1]/[0.5]'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
