@@ -1,5 +1,7 @@
 'use client';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const Question = ({ params }: { params: { id: string } }) => {
@@ -21,7 +23,14 @@ const Question = ({ params }: { params: { id: string } }) => {
 
   const [question, setQuestion] = useState<Ques>();
 
+  const { data: session } = useSession();
+
+  const router = useRouter();
+
   const init = async () => {
+    if (!session) {
+      router.push('/');
+    }
     const response = await fetch(`../api/questions/${params.id}`, {
       method: 'GET',
     });

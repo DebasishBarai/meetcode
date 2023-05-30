@@ -2,8 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const Questions = () => {
+  const { data: session } = useSession();
+
+  const router = useRouter();
+
   const [questions, setQuestions] = useState<
     {
       serialNo: number;
@@ -14,6 +20,9 @@ const Questions = () => {
   >([]);
 
   const init = async () => {
+    if (!session) {
+      router.push('/');
+    }
     const response = await fetch(`api/questions`, {
       method: 'GET',
     });
