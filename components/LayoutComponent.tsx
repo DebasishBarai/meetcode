@@ -1,7 +1,7 @@
 'use client';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const LayoutComponent = () => {
   const { data: session } = useSession();
@@ -9,8 +9,27 @@ const LayoutComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => setIsOpen(!isOpen);
+
+  const ref = useRef(null);
+
+  const handleClickOutside = (e: MouseEvent) => {
+    if (
+      ref.current &&
+      !(ref.current as HTMLDivElement).contains(e.target as Node)
+    ) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <main>
+    <main ref={ref}>
       <div className={`${isOpen ? 'hidden' : ''} absolute right-0 top-0 `}>
         <div className='relative left-[20%] top-0 h-20 w-[80%] border-b border-b-[#28A0F1]/[0.5]'>
           <svg
