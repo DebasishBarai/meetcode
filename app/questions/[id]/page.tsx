@@ -39,7 +39,9 @@ const Question = ({ params }: { params: { id: string } }) => {
     <div className='flex min-h-screen flex-col bg-slate-800 sm:min-w-full'>
       <div className='flex min-h-full min-w-full flex-row items-center justify-center'>
         <Link
-          href={question ? `/questions/${question.serialNo - 1}` : `/questions`}
+          href={
+            question ? `/questions/${+question.serialNo - 1}` : `/questions`
+          }
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -62,7 +64,9 @@ const Question = ({ params }: { params: { id: string } }) => {
           </h1>
         </Link>
         <Link
-          href={question ? `/questions/${question.serialNo + 1}` : `/questions`}
+          href={
+            question ? `/questions/${+question.serialNo + 1}` : `/questions`
+          }
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
