@@ -1,5 +1,5 @@
 'use client';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
@@ -71,12 +71,12 @@ const LayoutComponent = () => {
           <div>
             <div className='relative left-[20%] top-0 flex h-16 w-[80%] flex-col items-start justify-center border-b border-b-[#28A0F1]/[0.5]'>
               <button className='absolute p-4 text-[#28A0F1] hover:font-semibold'>
-                Dashboard
+              <Link href='/dashboard'>Dashboard</Link>
               </button>
             </div>
             <div className='relative left-[20%] top-0 flex h-16 w-[80%] flex-col items-start justify-center border-b border-b-[#28A0F1]/[0.5]'>
               <button className='absolute p-4 text-[#28A0F1] hover:font-semibold'>
-                Problems
+              <Link href='/questions'>Problems</Link>
               </button>
             </div>
             <div className='relative left-[20%] top-0 flex h-16 w-[80%] flex-col items-start justify-center border-b border-b-[#28A0F1]/[0.5]'>
@@ -85,8 +85,8 @@ const LayoutComponent = () => {
               </button>
             </div>
             <div className='relative left-[20%] top-0 flex h-16 w-[80%] flex-col items-start justify-center border-b border-b-[#28A0F1]/[0.5]'>
-              <button className='absolute p-4 text-[#28A0F1] hover:font-semibold'>
-                <Link href='/api/auth/signout'>Logout</Link>
+              <button onClick={()=>signOut()} className='absolute p-4 text-[#28A0F1] hover:font-semibold'>
+                Logout
               </button>
             </div>
           </div>
