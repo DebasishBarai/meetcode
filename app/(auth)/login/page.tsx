@@ -20,7 +20,7 @@ const SignIn = () => {
         email,
         password,
         name,
-        // isAdmin: isAdmin,
+        isAdmin,
         callbackUrl,
       });
       if (!res?.error) {

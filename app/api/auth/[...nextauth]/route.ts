@@ -1,3 +1,4 @@
+import { prisma } from '@/lib/prisma';
 import NextAuth, { type NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
@@ -25,22 +26,27 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        const user = {
-          id: 1,
-          email: credentials.email,
-          passwword: credentials.password,
-          name: credentials.name,
-        };
+        const user = await prisma.user.findUnique({
+          where: {
+            email: credentials.email
+          }
+        })
 
         if (!user) {
-          return null;
+          return null
+        }
+
+        
+
+        if (!(credentials.password===user.password)) {
+          return null
         }
 
         return {
           id: user.id + '',
           email: user.email,
           name: user.name,
-          randomKey: 'Hey cool',
+          randomKey: 'randomkey',
         };
       },
     }),
