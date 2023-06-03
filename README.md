@@ -37,18 +37,29 @@ To run MeetCode locally on your machine, follow these steps:
     - Create a PostgreSQL database.
     - Configure the database connection in the .env file, providing the necessary credentials and connection details.
 
-5.  Run database migrations:
+5.  Environment Variables
+
+    To run this project, you will need to add the following environment variables to your .env file
+
+    `NEXTAUTH_SECRET` which is a string
+
+    `NEXTAUTH_URL` which is the base url of your project. In development, it is to be kept as [http://localhost:3000](http://localhost:3000)
+
+    `DATABASE_URL` which is the postgresql database url
+
+6.  Run database migrations:
 
     ```bash
     npx prisma migrate dev
     ```
-6.  Start the development server:
+
+7.  Start the development server:
 
     ```bash
     npm run dev
     ```
 
-7.  Access MeetCode by visiting [http://localhost:3000](http://localhost:3000) in your browser.
+8.  Access MeetCode by visiting [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Usage
 
