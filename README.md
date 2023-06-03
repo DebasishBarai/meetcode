@@ -34,8 +34,8 @@ To run MeetCode locally on your machine, follow these steps:
 
 4.  Set up the database connection:
 
-        Create a PostgreSQL database.
-        Configure the database connection in the .env file, providing the necessary credentials and connection details.
+    - Create a PostgreSQL database.
+    - Configure the database connection in the .env file, providing the necessary credentials and connection details.
 
 5.  Run database migrations:
 
@@ -70,4 +70,4 @@ We welcome contributions from the community to improve MeetCode. To contribute, 
 
 ## License
 
-MeetCode is licensed under the MIT License.
+MeetCode is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License.
