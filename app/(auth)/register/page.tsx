@@ -117,14 +117,14 @@ const SignUp = () => {
         <div className='m-4 mt-0 p-4 pt-0 box-border'>
           <h1 className='p-4 pl-0 text-[#28A0F1]'>Role</h1>
           <select
-            className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] outline-none'
+            className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] outline-none text-slate-950'
             onChange={handleRoleChange}
           >
             <option selected>User</option>
             <option>Admin</option>
           </select>
         </div>
-        
+
         <div className='m-4 p-4 box-border grid'>
           <button
             onClick={handleSubmit}
