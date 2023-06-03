@@ -94,8 +94,8 @@ const Question = ({ params }: { params: { id: string } }) => {
         </Link>
       </div>
 
-      <div className='flex flex-grow bg-slate-900'>
-        <div className='m-1 flex w-[50%] flex-col rounded-sm bg-slate-800'>
+      <div className='flex flex-grow flex-col bg-slate-900 sm:flex-row'>
+        <div className='m-1 flex flex-col rounded-sm bg-slate-800 sm:w-[50%]'>
           <div className='rounded-[0.25rem_0.25rem_0_0] bg-slate-300 bg-opacity-20 p-2 text-white'>
             Description
           </div>
@@ -150,7 +150,7 @@ const Question = ({ params }: { params: { id: string } }) => {
           </div>
         </div>
 
-        <div className='m-1 flex w-[50%] flex-col justify-normal rounded-sm'>
+        <div className='m-1 flex flex-col justify-normal rounded-sm sm:w-[50%]'>
           <div className='rounded-[0.25rem_0.25rem_0_0] bg-slate-300 bg-opacity-20 p-2 text-white'>
             Code
           </div>
@@ -159,7 +159,7 @@ const Question = ({ params }: { params: { id: string } }) => {
               name='codearea'
               placeholder='Write your code here'
               id='codearea'
-              className='border-box h-[100%] w-[100%] bg-slate-800 p-2 text-white placeholder:opacity-50'
+              className='box-border min-h-[50vh] h-[100%] w-[100%] bg-slate-800 p-2 text-white placeholder:opacity-50'
             ></textarea>
           </div>
           <div className='flex justify-end'>
