@@ -81,6 +81,7 @@ const SignUp = () => {
             className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] placeholder:opacity-50 focus:placeholder:opacity-100 outline-none'
             placeholder='Enter your Email Id'
             type='email'
+            name='email'
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -103,6 +104,7 @@ const SignUp = () => {
             className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] placeholder:opacity-50 focus:placeholder:opacity-100 outline-none'
             placeholder='Enter your password'
             type='password'
+            name='password'
             onChange={(e) => {
               setPassword(e.target.value);
             }}
