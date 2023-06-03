@@ -4,7 +4,7 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-const SignIn = () => {
+const SignUp = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -31,22 +31,26 @@ const SignIn = () => {
     }
 
     try {
-      const res = await signIn('credentials', {
-        redirect: false,
-        email,
-        password,
-        name,
-        isAdmin,
-        callbackUrl,
-      });
-
-      if (!res?.error) {
-        router.push('/');
-      }else{
-        alert("Invalid credentials")
+      const res = await fetch('/api/register', {
+        method: 'POST',
+        body: JSON.stringify({
+          email,
+          password,
+          name,
+          isAdmin,
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      if (res.ok) {
+        alert('User created succesfully. Please signin to continue')
+        router.push('/')
+      } else {
+        alert((await res.json()).error)
       }
     } catch (error: any) {
-    alert(error?.message);
+      alert(error?.message)
     }
   };
 
@@ -119,7 +123,7 @@ const SignIn = () => {
             onClick={handleSubmit}
             className='text-[#28A0F1] border-[0.125em] border-[#28A0F1] border-solid rounded-lg p-2 m-2 shadow-[0_0_10px_2px_#28A0F1,_0_0_10px_2px_#28A0F1_inset] [text-shadow:_0_0_0.125em] hover:text-[#1E293B] hover:bg-[#28A0F1] hover:shadow-[0_0_100px_10px_#28A0F1] hover:[text-shadow:_none]'
           >
-            SignIn
+            SignUp
           </button>
         </div>
       </div>
@@ -127,4 +131,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;
