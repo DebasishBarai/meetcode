@@ -75,10 +75,11 @@ const SignUp = () => {
   return (
     <main className='bg-[#1E293B] min-h-screen min-w-full grid place-items-center'>
       <div className='bg-[rgba(255,_255,_255,_0.05)] w-80 h-fit rounded-2xl shadow-2xl grid-flow-row'>
+
         <div className='m-4 p-4 box-border'>
           <h1 className='p-4 pl-0 text-[#28A0F1]'>Email</h1>
           <input
-            className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] placeholder:opacity-50 focus:placeholder:opacity-100 outline-none'
+            className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] placeholder:opacity-50 focus:placeholder:opacity-100 outline-none text-slate-950'
             placeholder='Enter your Email Id'
             type='email'
             name='email'
@@ -87,10 +88,11 @@ const SignUp = () => {
             }}
           ></input>
         </div>
+
         <div className='m-4 p-4 box-border'>
           <h1 className='p-4 pl-0 text-[#28A0F1]'>Name</h1>
           <input
-            className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] placeholder:opacity-50 focus:placeholder:opacity-100 outline-none'
+            className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] placeholder:opacity-50 focus:placeholder:opacity-100 outline-none text-slate-950'
             placeholder='Enter your Name'
             type='string'
             onChange={(e) => {
@@ -98,10 +100,11 @@ const SignUp = () => {
             }}
           ></input>
         </div>
+
         <div className='m-4 mt-0 p-4 pt-0 box-border'>
           <h1 className='p-4 pl-0 text-[#28A0F1]'>Password</h1>
           <input
-            className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] placeholder:opacity-50 focus:placeholder:opacity-100 outline-none'
+            className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] placeholder:opacity-50 focus:placeholder:opacity-100 outline-none text-slate-950'
             placeholder='Enter your password'
             type='password'
             name='password'
@@ -110,6 +113,7 @@ const SignUp = () => {
             }}
           ></input>
         </div>
+
         <div className='m-4 mt-0 p-4 pt-0 box-border'>
           <h1 className='p-4 pl-0 text-[#28A0F1]'>Role</h1>
           <select
@@ -120,6 +124,7 @@ const SignUp = () => {
             <option>Admin</option>
           </select>
         </div>
+        
         <div className='m-4 p-4 box-border grid'>
           <button
             onClick={handleSubmit}
