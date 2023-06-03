@@ -18,7 +18,7 @@ To run MeetCode locally on your machine, follow these steps:
 1. Clone the repository:
 
     ```bash
-    https://github.com/DebasishBarai/meetcode.git
+    git clone https://github.com/DebasishBarai/meetcode.git
     ```
 
 2. Navigate to the project directory:
