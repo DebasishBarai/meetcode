@@ -6,9 +6,9 @@ import { useState } from 'react';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  // const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const [isAdmin, setIsAdmin] = useState(false);
+  // const [isAdmin, setIsAdmin] = useState(false);
   const callbackUrl = '/';
 
   const router = useRouter();
@@ -25,10 +25,10 @@ const SignIn = () => {
       return
     }
     
-    if(name===''){
-      alert("Name can not be empty")
-      return
-    }
+    // if(name===''){
+    //   alert("Name can not be empty")
+    //   return
+    // }
 
     try {
       const res = await signIn('credentials', {
@@ -36,7 +36,7 @@ const SignIn = () => {
         email,
         password,
         name,
-        isAdmin,
+        // isAdmin,
         callbackUrl,
       });
 
@@ -50,13 +50,13 @@ const SignIn = () => {
     }
   };
 
-  const handleRoleChange = (e: any) => {
-    if (e.target.value === 'Admin') {
-      setIsAdmin(true);
-    } else {
-      setIsAdmin(false);
-    }
-  };
+  // const handleRoleChange = (e: any) => {
+  //   if (e.target.value === 'Admin') {
+  //     setIsAdmin(true);
+  //   } else {
+  //     setIsAdmin(false);
+  //   }
+  // };
 
   const validateEmail=(mail: String)=>{
 
@@ -82,7 +82,7 @@ const SignIn = () => {
             }}
           ></input>
         </div>
-        <div className='m-4 p-4 box-border'>
+        {/* <div className='m-4 p-4 box-border'>
           <h1 className='p-4 pl-0 text-[#28A0F1]'>Name</h1>
           <input
             className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] placeholder:opacity-50 focus:placeholder:opacity-100 outline-none'
@@ -92,7 +92,7 @@ const SignIn = () => {
               setName(e.target.value);
             }}
           ></input>
-        </div>
+        </div> */}
         <div className='m-4 mt-0 p-4 pt-0 box-border'>
           <h1 className='p-4 pl-0 text-[#28A0F1]'>Password</h1>
           <input
@@ -104,7 +104,7 @@ const SignIn = () => {
             }}
           ></input>
         </div>
-        <div className='m-4 mt-0 p-4 pt-0 box-border'>
+        {/* <div className='m-4 mt-0 p-4 pt-0 box-border'>
           <h1 className='p-4 pl-0 text-[#28A0F1]'>Role</h1>
           <select
             className='p-2 h-fit w-full rounded-sm border-[2px] border-[#28A0F1] outline-none'
@@ -113,7 +113,7 @@ const SignIn = () => {
             <option selected>User</option>
             <option>Admin</option>
           </select>
-        </div>
+        </div> */}
         <div className='m-4 p-4 box-border grid'>
           <button
             onClick={handleSubmit}
