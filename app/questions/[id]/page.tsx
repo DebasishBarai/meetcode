@@ -28,6 +28,8 @@ const Question = ({ params }: { params: { id: string } }) => {
 
   const [code, setCode] = useState('//Write your code here');
 
+  const [language, setLanguage] = useState('javascript');
+
   const router = useRouter();
 
   const init = async () => {
@@ -46,6 +48,11 @@ const Question = ({ params }: { params: { id: string } }) => {
   useEffect(() => {
     init();
   }, []);
+
+  const handleLanguageChange = (e: any) => {
+    setLanguage(e.target.value.toLowerCase());
+    console.log(language);
+  };
 
   return (
     <div className='flex min-h-screen flex-col bg-slate-800 sm:min-w-full'>
@@ -157,7 +164,10 @@ const Question = ({ params }: { params: { id: string } }) => {
           <div className='rounded-[0.25rem_0.25rem_0_0] bg-slate-300 bg-opacity-20 p-2 text-white flex flex-row'>
             <div className='pr-2'>Code</div>
             <div>
-              <select className='bg-transparent'>
+              <select
+                className='bg-transparent'
+                onChange={handleLanguageChange}
+              >
                 <option selected className='bg-slate-800'>
                   JavaScript
                 </option>
@@ -170,7 +180,7 @@ const Question = ({ params }: { params: { id: string } }) => {
           <div className='m-[0.5rem_0] flex-grow'>
             <Editor
               theme='vs-dark'
-              language='javascript'
+              language={language}
               value={code}
               className='box-border min-h-[50vh] h-[100%] w-[100%] text-white'
             ></Editor>
