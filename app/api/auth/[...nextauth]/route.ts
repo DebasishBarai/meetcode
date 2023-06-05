@@ -46,7 +46,7 @@ export const authOptions: NextAuthOptions = {
           id: user.id + '',
           email: user.email,
           name: user.name,
-          isAdmin: user.isAdmin,
+          role: user.role,
           randomKey: 'randomkey',
         };
       },

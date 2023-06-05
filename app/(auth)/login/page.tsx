@@ -8,7 +8,7 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   // const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  // const [isAdmin, setIsAdmin] = useState(false);
+  // const [role, setRole] = useState<String>(Role.USER);
   const callbackUrl = '/';
 
   const router = useRouter();
@@ -52,9 +52,9 @@ const SignIn = () => {
 
   // const handleRoleChange = (e: any) => {
   //   if (e.target.value === 'Admin') {
-  //     setIsAdmin(true);
+  //     setRole(Role.ADMIN_PENDING);
   //   } else {
-  //     setIsAdmin(false);
+  //     setRole(Role.USER);
   //   }
   // };
 

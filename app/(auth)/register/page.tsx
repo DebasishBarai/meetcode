@@ -1,5 +1,6 @@
 'use client';
 
+import { Role } from '@prisma/client';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -8,7 +9,7 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [role, setRole] = useState<String>(Role.USER);
   const callbackUrl = '/';
 
   const router = useRouter();
@@ -37,7 +38,7 @@ const SignUp = () => {
           email,
           password,
           name,
-          isAdmin,
+          role,
         }),
         headers: {
           'Content-Type': 'application/json'
@@ -56,9 +57,9 @@ const SignUp = () => {
 
   const handleRoleChange = (e: any) => {
     if (e.target.value === 'Admin') {
-      setIsAdmin(true);
+      setRole(Role.ADMIN_PENDING);
     } else {
-      setIsAdmin(false);
+      setRole(Role.USER);
     }
   };
 
