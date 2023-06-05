@@ -1,4 +1,5 @@
 'use client';
+import { Editor } from '@monaco-editor/react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -24,6 +25,8 @@ const Question = ({ params }: { params: { id: string } }) => {
   const [question, setQuestion] = useState<Ques>();
 
   const { data: session } = useSession();
+
+  const [code, setCode] = useState('//Write your code here');
 
   const router = useRouter();
 
@@ -151,16 +154,26 @@ const Question = ({ params }: { params: { id: string } }) => {
         </div>
 
         <div className='m-1 flex flex-col justify-normal rounded-sm sm:w-[50%]'>
-          <div className='rounded-[0.25rem_0.25rem_0_0] bg-slate-300 bg-opacity-20 p-2 text-white'>
-            Code
+          <div className='rounded-[0.25rem_0.25rem_0_0] bg-slate-300 bg-opacity-20 p-2 text-white flex flex-row'>
+            <div className='pr-2'>Code</div>
+            <div>
+              <select className='bg-transparent'>
+                <option selected className='bg-slate-800'>
+                  JavaScript
+                </option>
+                <option className='bg-slate-800'>Python</option>
+                <option className='bg-slate-800'>Java</option>
+                <option className='bg-slate-800'>C++</option>
+              </select>
+            </div>
           </div>
           <div className='m-[0.5rem_0] flex-grow'>
-            <textarea
-              name='codearea'
-              placeholder='Write your code here'
-              id='codearea'
-              className='box-border min-h-[50vh] h-[100%] w-[100%] bg-slate-800 p-2 text-white placeholder:opacity-50'
-            ></textarea>
+            <Editor
+              theme='vs-dark'
+              language='javascript'
+              value={code}
+              className='box-border min-h-[50vh] h-[100%] w-[100%] text-white'
+            ></Editor>
           </div>
           <div className='flex justify-end'>
             <div className='w-fit rounded bg-green-500 p-2 text-white'>
