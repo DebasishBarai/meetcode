@@ -57,7 +57,7 @@ const Question = ({ params }: { params: { id: string } }) => {
             fill='none'
             viewBox='0 0 24 24'
             stroke-width='2.5'
-            stroke='white'
+            stroke='#28A0F1'
             className='mt-2 h-6 w-6 hover:stroke-[4px] opacity-40 hover:opacity-100'
           >
             <path
@@ -68,7 +68,7 @@ const Question = ({ params }: { params: { id: string } }) => {
           </svg>
         </Link>
         <Link href='/questions'>
-          <h1 className='min-w-fit p-10 text-center text-4xl text-white'>
+          <h1 className='min-w-fit p-10 text-center text-4xl text-[#28A0F1]'>
             Problems
           </h1>
         </Link>
@@ -82,7 +82,7 @@ const Question = ({ params }: { params: { id: string } }) => {
             fill='none'
             viewBox='0 0 24 24'
             stroke-width='2.5'
-            stroke='white'
+            stroke='#28A0F1'
             className='mt-2 h-6 w-6 hover:stroke-[4px] opacity-40 hover:opacity-100'
           >
             <path

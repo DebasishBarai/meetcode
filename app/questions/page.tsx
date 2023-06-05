@@ -37,12 +37,12 @@ const Questions = () => {
 
   return (
     <div className='flex min-h-screen min-w-full flex-col bg-slate-800'>
-      <h1 className='min-w-full p-10 text-center text-4xl text-white'>
+      <h1 className='min-w-full p-10 text-center text-4xl text-[#28A0F1]'>
         Problems
       </h1>
 
       <table className='m-4 table-auto bg-slate-900 text-left leading-10 text-white'>
-        <thead>
+        <thead className='text-[#28A0F1]'>
           <tr>
             <th className='pl-4'>Title</th>
             <th>Difficulty</th>
