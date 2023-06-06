@@ -49,19 +49,22 @@ To run MeetCode locally on your machine, follow these steps:
 
    - Delete the `prisma` folder in the `root` directory and also delete the `prisma.ts` file in the `lib` folder. You are going to set up prisma yourself.
 
-
    - Create a PostgreSQL database. Recommended to use a dockerize postgress image for creating database.
+
    - Run
 
      ```bash
      docker run --rm -p 5432:5432 -e POSTGRES_HOST_AUTH_METHOD=trust postgres
      ```
+
      to set up the initial postgres database server
 
    - Initialize prisma with command
+
       ```bash
       npx prisma init
       ```
+
    - Now, you may notice that a prisma schema file `schema.prisma` is created in the prisma folder. `Copy` and `paste` the `schema.prisma` file data from the github repo.
 
    - Modify the `.env` file with `DATABASE_URL="postgresql://postgres@localhost:5432/postgres?schema=public"`
@@ -71,6 +74,7 @@ To run MeetCode locally on your machine, follow these steps:
      ```bash
      npx prisma migrate dev --name init
      ```
+
    - Create the seed file `seed.ts` in the `prisma` folder. `Copy` and `paste` the `seed.ts` file data from the github repo.
 
    - Make sure you have the `prisma seed` script in the `package.json` file.
@@ -84,6 +88,7 @@ To run MeetCode locally on your machine, follow these steps:
    - Make sure you have the `ts-node` installed in the `devDependencies` section in `package.json` file.
 
    - Run the command to seed the database
+
      ```bash
      npx prisma db seed
      ```
