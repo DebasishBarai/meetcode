@@ -33,12 +33,7 @@ To run MeetCode locally on your machine, follow these steps:
    npm install
    ```
 
-4. Set up the database connection:
-
-   - Create a PostgreSQL database.
-   - Configure the database connection in the .env file, providing the necessary credentials and connection details.
-
-5. Environment Variables
+4. Environment Variables
 
    To run this project, you will need to create .env file in your root dirctory
 
@@ -49,6 +44,11 @@ To run MeetCode locally on your machine, follow these steps:
    `NEXTAUTH_URL` which is the base url of your project. In development, it is to be kept as [http://localhost:3000](http://localhost:3000)
 
    `DATABASE_URL` which is the postgresql database url
+
+5. Set up the database connection:
+
+   - Create a PostgreSQL database.
+   - Configure the database connection in the .env file, providing the necessary credentials and connection details.
 
 6. Run database migrations:
 
