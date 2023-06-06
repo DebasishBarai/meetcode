@@ -3,7 +3,7 @@ import { Editor } from '@monaco-editor/react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const Question = ({ params }: { params: { id: string } }) => {
   type Example = {
@@ -54,6 +54,9 @@ const Question = ({ params }: { params: { id: string } }) => {
     console.log(language);
   };
 
+  const showValue = () => {
+    alert(code);
+  };
   return (
     <div className='flex min-h-screen flex-col bg-slate-800 sm:min-w-full'>
       <div className='flex min-h-full min-w-full flex-row items-center justify-center'>
@@ -182,13 +185,17 @@ const Question = ({ params }: { params: { id: string } }) => {
               theme='vs-dark'
               language={language}
               value={code}
+              onChange={(value: string | undefined) => setCode(value || '')}
               className='box-border min-h-[50vh] h-[100%] w-[100%] text-white'
             ></Editor>
           </div>
           <div className='flex justify-end'>
-            <div className='w-fit rounded bg-green-500 p-2 text-white'>
+            <button
+              onClick={showValue}
+              className='w-fit rounded bg-green-500 p-2 text-white'
+            >
               Submit
-            </div>
+            </button>
           </div>
         </div>
       </div>
