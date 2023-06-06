@@ -7,8 +7,9 @@ export default function QuestionsLayout({
 }) {
   return (
     <section>
-      <LayoutComponent />
       {children}
+      {/* LayoutComponent is kept below {children} so that the LayoutComponent is shown above the Editor component in questions/id page */}
+      <LayoutComponent />
     </section>
   );
 }
