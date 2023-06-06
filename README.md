@@ -17,49 +17,52 @@ To run MeetCode locally on your machine, follow these steps:
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/DebasishBarai/meetcode.git
-    ```
+   ```bash
+   git clone https://github.com/DebasishBarai/meetcode.git
+   ```
 
 2. Navigate to the project directory:
 
-    ```bash
-    cd meetcode
-    ```
-3.  Install the dependencies:
+   ```bash
+   cd meetcode
+   ```
 
-    ```bash
-    npm install
-    ```
+3. Install the dependencies:
 
-4.  Set up the database connection:
+   ```bash
+   npm install
+   ```
 
-    - Create a PostgreSQL database.
-    - Configure the database connection in the .env file, providing the necessary credentials and connection details.
+4. Set up the database connection:
 
-5.  Environment Variables
+   - Create a PostgreSQL database.
+   - Configure the database connection in the .env file, providing the necessary credentials and connection details.
 
-    To run this project, you will need to add the following environment variables to your .env file
+5. Environment Variables
 
-    `NEXTAUTH_SECRET` which is a string
+   To run this project, you will need to create .env file in your root dirctory
 
-    `NEXTAUTH_URL` which is the base url of your project. In development, it is to be kept as [http://localhost:3000](http://localhost:3000)
+   Duplicate `.env.example` to `.env`
 
-    `DATABASE_URL` which is the postgresql database url
+   Use `openssl rand -base64 32` to generate a key and add it under `NEXTAUTH_SECRET` which is a string in the `.env` file
 
-6.  Run database migrations:
+   `NEXTAUTH_URL` which is the base url of your project. In development, it is to be kept as [http://localhost:3000](http://localhost:3000)
 
-    ```bash
-    npx prisma migrate dev
-    ```
+   `DATABASE_URL` which is the postgresql database url
 
-7.  Start the development server:
+6. Run database migrations:
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npx prisma migrate dev
+   ```
 
-8.  Access MeetCode by visiting [http://localhost:3000](http://localhost:3000) in your browser.
+7. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+8. Access MeetCode by visiting [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Usage
 
