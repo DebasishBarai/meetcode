@@ -47,7 +47,7 @@ To run MeetCode locally on your machine, follow these steps:
 
 5. Set up the database connection:
 
-   - Create a PostgreSQL database.
+   - Create a PostgreSQL database. Recommended to use a dockerize postgress image for creating database.
    - Configure the database connection in the .env file, providing the necessary credentials and connection details.
 
 6. Run database migrations:

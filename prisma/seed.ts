@@ -1,7 +1,6 @@
+import { PrismaClient, Role } from '@prisma/client';
 
-import { PrismaClient, Role } from '@prisma/client'
-
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 async function main() {
   const user = await prisma.user.upsert({
@@ -12,14 +11,14 @@ async function main() {
       name: 'Test User',
       password: `pword1234`,
       role: Role.ADMIN,
-    }
-  })
-//   console.log({ user })
+    },
+  });
+  //   console.log({ user })
 }
 main()
   .then(() => prisma.$disconnect())
   .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
